@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MoodWaves</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Welcome to MoodWaves</h1>
+    <p>Choose your mood to hear the perfect sound</p>
+
+    <div class="mood-buttons">
+      <img src="images/happy.png" alt="Happy" onclick="setMood('happy')">
+      <img src="images/sad.png" alt="Sad" onclick="setMood('sad')">
+      <img src="images/calm.png" alt="Calm" onclick="setMood('calm')">
+      <img src="images/focus.png" alt="Focus" onclick="setMood('focus')">
+    </div>
+
+    <div id="player"></div>
+  </div>
+
+  <script>
+    function setMood(mood) {
+      const playlists = {
+        calm: "https://open.spotify.com/embed/playlist/37i9dQZF1DWUvZBXGjNCU4",
+        happy: "https://open.spotify.com/embed/playlist/37i9dQZF1DXdPec7aLTmlC",
+        sad: "https://open.spotify.com/embed/playlist/37i9dQZF1DX7qK8ma5wgG1",
+        focus: "https://open.spotify.com/embed/playlist/37i9dQZF1DX4sWSpwq3LiO"
+      };
+
+      document.getElementById("player").innerHTML = `
+        <iframe src="${playlists[mood]}" width="300" height="380" allow="encrypted-media" frameborder="0"></iframe>
+      `;
+    }
+  </script>
+</body>
+</html>
